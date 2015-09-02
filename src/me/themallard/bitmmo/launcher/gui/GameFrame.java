@@ -3,6 +3,7 @@ package me.themallard.bitmmo.launcher.gui;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,7 +18,7 @@ public class GameFrame extends JFrame {
 	public GameFrame() {
 		super("Bit+ Launcher");
 
-		this.appletPanel = new JPanel();
+		this.appletPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
 		this.appletPanel.setPreferredSize(new Dimension(1280, 720));
 
 		// prevents the canvas being drawn ontop of the other components
@@ -29,11 +30,11 @@ public class GameFrame extends JFrame {
 		this.setLayout(new BorderLayout());
 
 		this.add(this.appletPanel);
-		
+
 		this.setResizable(false);
 
 		this.pack();
-		
+
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
