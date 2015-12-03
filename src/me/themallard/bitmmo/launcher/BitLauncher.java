@@ -23,28 +23,23 @@ public class BitLauncher {
 	public static void main(String[] args) {
 		for (int i = 0; i < args.length; i++) {
 			if (args[i].equals("--gamepack")) {
-				CLIENT_PATH = args[i + 1];
-			}
-
-			if (args[i].equals("--server")) {
-				SERVER_ADDR = args[i + 1];
-			}
-
-			if (args[i].equals("--port")) {
-				SERVER_PORT = args[i + 1];
-			}
-
-			if (args[i].equals("--resource")) {
-				RESOURCE_PACK = args[i + 1];
-			}
-
-			if (args[i].equals("--help")) {
+				CLIENT_PATH = args[++i];
+			} else if (args[i].equals("--server")) {
+				SERVER_ADDR = args[++i];
+			} else if (args[i].equals("--port")) {
+				SERVER_PORT = args[++i];
+			} else if (args[i].equals("--resource")) {
+				RESOURCE_PACK = args[++i];
+			} else if (args[i].equals("--help")) {
 				System.out.println("--help                = Show this message");
 				System.out.println("--gamepack <gamepack> = Select a different gamepack");
 				System.out.println("--server <host>       = Select a different server");
 				System.out.println("--port <port>         = Select a different port");
 				System.out.println("--resource <url>      = Select a different asset pack");
 				System.exit(0);
+			} else {
+				System.err.println(String.format("Unknown option '%s'. Try --help", args[i]));
+				System.exit(1);
 			}
 		}
 
